@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Menu Utama</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Minecraftia', sans-serif;
+      background: url("assets/images/Background.jpg") no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 10px;
+      transition: color 0.2s;
+    }
+
+    .navbar a:hover {
+      color: #ffd700;
+    }
+
+    /* ===== Menu Tengah ===== */
+    .menu-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-top: 60px; /* supaya tidak ketutupan navbar */
+    }
+
+    .menu-title {
+      font-size: 28px;
+      color: #fff;
+      text-shadow: 2px 2px #000;
+      margin-bottom: 40px;
+    }
+
+    .menu-options {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .menu-item {
+      width: 140px;
+      height: 140px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 3px solid #888;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #fff;
+      font-size: 14px;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .menu-item img {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 10px;
+      image-rendering: pixelated;
+    }
+
+    .menu-item:hover {
+      border-color: #ffd700;
+      box-shadow: 0 0 20px #ffd700;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="index.html">HOME</a>
+    <div class="links">
+      <a href="https://wa.me/082138740594" target="_blank">WhatsApp</a>
+      <a href="https://instagram.com/agussindraaa" target="_blank">Instagram</a>
+      <a href="https://tiktok.com/@agus_i03" target="_blank">TikTok</a>
+    </div>
+  </div>
+
+  <!-- Menu Tengah -->
+  <div class="menu-container">
+    <h1 class="menu-title">SELECT YOUR ADVENTURE</h1>
+    <div class="menu-options">
+      <!-- Pendidikan -->
+      <a href="pendidikan.html" class="menu-item">
+        <img src="assets/images/download.jpg" alt="Pendidikan">
+        <span>PENDIDIKAN</span>
+      </a>
+
+      <!-- Prestasi -->
+      <a href="prestasi.html" class="menu-item">
+        <img src="assets/images/bee.jpg" alt="Prestasi">
+        <span>PRESTASI</span>
+      </a>
+
+      <!-- Kontak -->
+      <a href="kontak.html" class="menu-item">
+        <img src="assets/images/Kepala Pig.jpg" alt="Kontak">
+        <span>KONTAK</span>
+      </a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+/* Blur background untuk halaman pendidikan */
+body.page-pendidikan {
+  position: relative;
+  background: url("assets/images/Background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* Overlay blur */
+body.page-pendidikan::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px); /* atur tingkat blur */
+  background: rgba(0, 0, 0, 0.3); /* sedikit gelap biar teks lebih fokus */
+  z-index: 0;
+}
+
+/* Konten tetap di atas blur */
+.page2-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tombol umum */
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: rgba(0,0,0,0.6);
+  border: 2px solid #888;
+  border-radius: 8px;
+  color: #fff;
+  font-family: 'Minecraftia', sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+  text-shadow: 1px 1px #000;
+}
+
+/* Tombol kembali */
+.back-button {
+  display: inline-block;
+  padding: 8px 16px; /* lebih kecil dari tombol start */
+  background: rgba(0,0,0,0.6);
+  border: 2px solid #888;
+  border-radius: 6px;
+  color: #fff;
+  font-family: 'Minecraftia', sans-serif;
+  font-size: 14px; /* lebih kecil */
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 25px; /* jarak dari konten */
+}
+
+.back-button:hover {
+  border-color: #ffd700;
+  box-shadow: 0 0 10px #ffd700;
+  transform: scale(1.05);
+}
+

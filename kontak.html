@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontak Saya</title>
+  <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Minecraftia', sans-serif;
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Background gunung dengan blur */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("assets/images/Background.jpg") no-repeat center center fixed;
+      background-size: cover;
+      filter: blur(8px);
+      z-index: -1;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .minecraft-title {
+      font-size: 28px;
+      text-shadow: 2px 2px #000;
+      margin-bottom: 30px;
+    }
+
+    /* Icon sosial */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .social-links a {
+      font-size: 40px;
+      color: #fff;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #ffd700;
+      transform: scale(1.2);
+    }
+
+    /* Tombol Back */
+    .back-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid #888;
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .back-button:hover {
+      border-color: #ffd700;
+      box-shadow: 0 0 10px #ffd700;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="minecraft-title">KONTAK SAYA</h1>
+
+    <div class="social-links">
+      <!-- WhatsApp -->
+      <a href="https://wa.me/6281234567890" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/agus_i03" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@agus_i03" target="_blank">
+        <i class="fab fa-tiktok"></i>
+      </a>
+    </div>
+
+    <!-- Tombol Back -->
+    <a href="page2.html" class="back-button">KEMBALI</a>
+  </div>
+</body>
+</html>

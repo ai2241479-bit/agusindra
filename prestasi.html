@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prestasi</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Minecraftia', sans-serif;
+      color: #fff;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Background gunung blur */
+    .bg-blur {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("assets/images/Background.jpg") no-repeat center center fixed;
+      background-size: cover;
+      filter: blur(6px) brightness(0.7);
+      z-index: -1;
+    }
+
+    .page-content {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .minecraft-title {
+      font-size: 28px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px #000;
+    }
+
+    /* Prestasi grid */
+    .achievement-list {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap; /* biar responsive di HP */
+    }
+
+    .achievement-item {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      width: 350px; /* biar seimbang kiri kanan */
+      text-align: center;
+    }
+
+    .achievement-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .achievement-item h2 {
+      font-size: 16px;
+      margin: 0;
+      text-shadow: 1px 1px #000;
+    }
+
+    /* Tombol Back */
+    .back-button {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 10px 20px;
+      background: rgba(0,0,0,0.7);
+      border: 2px solid #888;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-button:hover {
+      border-color: #ffd700;
+      box-shadow: 0 0 10px #ffd700;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- Background blur -->
+  <div class="bg-blur"></div>
+
+  <main class="page-content">
+    <h1 class="minecraft-title">PRESTASI</h1>
+
+    <section class="achievement-list">
+      <article class="achievement-item">
+        <img src="assets\images\Lomba FilmPendek.jpeg" alt="Lomba Film Pendek">
+        <h2>Juara III Lomba Film Pendek Tingkat Nasional</h2>
+      </article>
+
+      <article class="achievement-item">
+        <img src="assets\images\Lomba Bebanyolan.jpeg" alt="Lomba Bebanyolan">
+        <h2>Juara I Lomba Bebanyolan Tingkat Kabupaten</h2>
+      </article>
+    </section>
+
+    <!-- Tombol kembali -->
+    <a href="page2.html" class="back-button">KEMBALI</a>
+  </main>
+</body>
+</html>
