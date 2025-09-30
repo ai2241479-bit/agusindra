@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Adventure of Agus</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.cdnfonts.com/css/minecraftia" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url("assets/images/Background.jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Minecraftia', sans-serif;
+      overflow: hidden;
+      transition: opacity 1s ease;
+    }
+
+    body.fade-in {
+      opacity: 1;
+    }
+
+    body.fade-out {
+      opacity: 0;
+    }
+
+    .minecraft-title {
+      font-size: 32px;
+      color: #fff;
+      text-shadow: 3px 3px #000;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    /* ===== Tombol Start ===== */
+    .button {
+      display: inline-block;
+      padding: 15px 40px;
+      font-size: 18px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.7);
+      border: 3px solid #888;
+      border-radius: 10px;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 5px #444;
+      transition: all 0.2s ease;
+    }
+
+    .button:hover {
+      border-color: #ffd700;
+      box-shadow: 0 5px #222, 0 0 20px #ffd700;
+      transform: scale(1.05);
+    }
+
+    .button:active {
+      transform: scale(0.95);
+      box-shadow: 0 2px #222 inset;
+      background: rgba(255, 215, 0, 0.2);
+    }
+  </style>
+</head>
+<body class="normal-bg fade-in">
+  <h1 class="minecraft-title">THE ADVENTURE OF AGUS</h1>
+
+  <!-- Tombol Start -->
+  <a href="page2.html" class="button" id="startBtn">START GAME</a>
+
+  <script>
+    const startBtn = document.getElementById("startBtn");
+    startBtn.addEventListener("click", function(e) {
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = startBtn.getAttribute("href");
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
