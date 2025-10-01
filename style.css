@@ -68,7 +68,7 @@ body.page-pendidikan::before {
   text-shadow: 1px 1px #000;
   min-width: 100px;  /* biar ukuran konsisten */
   text-align: center;
-  margin-top: 60px; /* tambah jarak biar agak turun, bisa disesuaikan 40px–80px */
+  margin-top: 20px; /* tambah jarak biar agak turun, bisa disesuaikan 40px–80px */
 }
 
 .nav-button:hover {
