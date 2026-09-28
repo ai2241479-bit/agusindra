@@ -164,7 +164,7 @@ const HeroSection = () => {
         />
 
         <motion.img
-          src="/profile-cutout.png"
+          src={`${import.meta.env.BASE_URL}profile-cutout.png`}
           alt="Agus Indra"
           initial={{
             scale: 0.97,
