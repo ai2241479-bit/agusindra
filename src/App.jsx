@@ -97,7 +97,7 @@ const ContactMenu = () => {
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         whileTap={{ scale: 0.96 }}
-        className={`group flex items-center gap-1.5 rounded-full border px-3 py-2 text-[8px] font-semibold tracking-[0.12em] transition-all duration-300 sm:gap-2 sm:px-4 sm:text-[9px] md:px-5 md:py-2.5 md:text-[10px] ${
+        className={`group flex items-center gap-1.5 rounded-full border px-3 py-2 text-[10px] font-semibold tracking-[0.12em] transition-all duration-300 sm:gap-2 sm:px-4 sm:text-[9px] md:px-5 md:py-2.5 md:text-[10px] ${
           open
             ? 'border-slate-300 bg-white/80 text-slate-900 shadow-sm'
             : 'border-white/60 bg-white/40 text-slate-700 hover:bg-white/70 hover:text-slate-900'
@@ -152,7 +152,7 @@ const ContactMenu = () => {
                 duration: 0.2,
                 ease: 'easeOut',
               }}
-              className="absolute right-0 top-[calc(100%+12px)] z-50 w-55 overflow-hidden rounded-3xl border border-white/70 bg-white/75 p-2 shadow-[0_20px_50px_rgba(15,23,42,0.12)] backdrop-blur-2xl"
+              className="absolute right-0 top-[calc(100%+12px)] z-50 w-55 overflow-hidden rounded-3xl border border-white/70 bg-white/75 p-2 shadow-[0_10px_30px_rgba(15,23,42,0.1)] backdrop-blur-lg md:shadow-[0_20px_50px_rgba(15,23,42,0.12)] md:backdrop-blur-2xl"
             >
 
               {/* =================================================
@@ -284,45 +284,48 @@ export default function App() {
      SCROLL STATE
   ======================================================= */
 
-useEffect(() => {
-  const handleScroll = () => {
-    setScrolled(window.scrollY > 40);
+  useEffect(() => {
+    let ticking = false;
 
-    const sections = menuItems
-      .map((item) => document.getElementById(item.id))
-      .filter(Boolean);
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 40);
 
-    const scrollPosition =
-      window.scrollY + window.innerHeight * 0.35;
+          const scrollPosition = window.scrollY + window.innerHeight * 0.35;
+          let currentSection = 'home';
 
-    let currentSection = 'home';
+          menuItems.forEach((item) => {
+            const el = document.getElementById(item.id);
+            if (el && scrollPosition >= el.offsetTop) {
+              currentSection = item.id;
+            }
+          });
 
-    sections.forEach((section) => {
-      if (scrollPosition >= section.offsetTop) {
-        currentSection = section.id;
+          setActiveSection(currentSection);
+          ticking = false;
+        });
+        ticking = true;
       }
+    };
+
+    window.addEventListener('scroll', handleScroll, {
+      passive: true,
     });
 
-    setActiveSection(currentSection);
-  };
+    handleScroll();
 
-  window.addEventListener('scroll', handleScroll, {
-    passive: true,
-  });
-
-  handleScroll();
-
-  return () => {
-    window.removeEventListener('scroll', handleScroll);
-  };
-}, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   /* =======================================================
      RENDER
   ======================================================= */
 
   return (
-    <div className="min-h-dvh overflow-x-hidden bg-[#f7f7f5] font-sans text-slate-900">
+    <div className="min-h-dvh overflow-x-hidden bg-[#f7f7f5] font-sans text-slate-900 antialiased motion-reduce:transition-none motion-reduce:transform-none">
 
       {/* =====================================================
           GLOBAL AMBIENT BACKGROUND
@@ -332,7 +335,7 @@ useEffect(() => {
 
         {/* Blue ambient glow */}
         <div
-          className="absolute -right-40 -top-40 h-120 w-120 rounded-full blur-3xl"
+          className="absolute -right-40 -top-40 h-80 w-80 rounded-full blur-2xl md:h-120 md:w-120 md:blur-3xl"
           style={{
             background:
               'radial-gradient(circle, rgba(59,130,246,0.08) 0%, rgba(59,130,246,0.025) 45%, transparent 72%)',
@@ -341,7 +344,7 @@ useEffect(() => {
 
         {/* Neutral ambient glow */}
         <div
-          className="absolute -bottom-40 -left-40 h-120 w-120 rounded-full blur-3xl"
+          className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full blur-2xl md:h-120 md:w-120 md:blur-3xl"
           style={{
             background:
               'radial-gradient(circle, rgba(148,163,184,0.10) 0%, rgba(148,163,184,0.025) 45%, transparent 72%)',
@@ -350,7 +353,7 @@ useEffect(() => {
 
         {/* Center subtle glow */}
         <div
-          className="absolute left-1/2 top-1/2 h-100 w-100 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+          className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl md:h-100 md:w-100 md:blur-3xl"
           style={{
             background:
               'radial-gradient(circle, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0.15) 45%, transparent 75%)',
@@ -378,10 +381,10 @@ useEffect(() => {
             duration: 0.7,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className={`relative flex w-full max-w-6xl items-center justify-between border border-white/60 bg-white/45 backdrop-blur-2xl transition-all duration-500 ${
+          className={`relative flex w-full max-w-6xl items-center justify-between border border-white/60 bg-white/45 backdrop-blur-md transition-all duration-500 md:backdrop-blur-2xl ${
             scrolled
-              ? 'rounded-3xl px-3 py-2 shadow-[0_12px_40px_rgba(15,23,42,0.08)] sm:px-4 md:px-6'
-              : 'rounded-4xl px-3 py-3 shadow-[0_8px_35px_rgba(15,23,42,0.05)] sm:px-4 md:px-7 md:py-3.5'
+              ? 'rounded-3xl px-4 py-2.5 shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:px-6 md:py-2 md:shadow-[0_12px_40px_rgba(15,23,42,0.08)]'
+              : 'rounded-[2rem] px-4 py-3 shadow-[0_4px_25px_rgba(15,23,42,0.04)] md:rounded-4xl md:px-7 md:py-3.5 md:shadow-[0_8px_35px_rgba(15,23,42,0.05)]'
           }`}
         >
 
@@ -405,7 +408,7 @@ useEffect(() => {
             className="relative z-10 flex shrink-0 items-center gap-3"
           >
 
-            <div className="flex items-baseline text-xl font-black tracking-[-0.08em] text-slate-900 md:text-2xl">
+            <div className="flex items-baseline text-lg font-black tracking-[-0.08em] text-slate-900 md:text-2xl">
               A<span className="font-light">G</span>
               <span className="ml-0.5 text-blue-600">.</span>
             </div>
@@ -415,7 +418,7 @@ useEffect(() => {
             <div className="hidden items-center gap-2 border-l border-slate-300/70 pl-3 lg:flex">
 
               <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:animate-none" />
 
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
               </span>

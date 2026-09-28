@@ -48,7 +48,7 @@ const ProjectSukaLaundry = () => {
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {/* Blue ambient glow */}
         <div
-          className="absolute -right-48 top-20 h-120 w-120 rounded-full blur-3xl"
+          className="absolute -right-48 top-20 h-120 w-120 rounded-full blur-2xl md:blur-3xl"
           style={{
             background:
               'radial-gradient(circle, rgba(59,130,246,0.10) 0%, rgba(59,130,246,0.025) 45%, transparent 72%)',
@@ -57,7 +57,7 @@ const ProjectSukaLaundry = () => {
 
         {/* Neutral ambient glow */}
         <div
-          className="absolute -left-48 bottom-0 h-120 w-120 rounded-full blur-3xl"
+          className="absolute -left-48 bottom-0 h-120 w-120 rounded-full blur-2xl md:blur-3xl"
           style={{
             background:
               'radial-gradient(circle, rgba(148,163,184,0.12) 0%, rgba(148,163,184,0.025) 45%, transparent 72%)',
@@ -66,7 +66,7 @@ const ProjectSukaLaundry = () => {
 
         {/* Center glow */}
         <div
-          className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+          className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl md:blur-3xl"
           style={{
             background:
               'radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.25) 45%, transparent 75%)',
@@ -274,7 +274,7 @@ const ProjectSukaLaundry = () => {
             {/* Ambient Glow */}
 
             <div
-              className="absolute left-1/2 top-1/2 h-[75%] w-[75%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+              className="absolute left-1/2 top-1/2 h-[75%] w-[75%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl md:blur-3xl"
               style={{
                 background:
                   'radial-gradient(circle, rgba(59,130,246,0.12) 0%, rgba(255,255,255,0.4) 45%, transparent 72%)',
@@ -335,6 +335,7 @@ const ProjectSukaLaundry = () => {
                     <img
                       src={sukaLaundryImage}
                       alt="Suka Laundry mobile application"
+                      loading="lazy"
                       className="block h-auto w-full"
                       onError={(event) => {
                         console.error(

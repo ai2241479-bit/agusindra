@@ -37,7 +37,7 @@ const SchoolHistory = () => {
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {/* Blue glow */}
         <div
-          className="absolute -right-32 -top-32 h-104 w-104 rounded-full opacity-50 blur-3xl"
+          className="absolute -right-32 -top-32 h-104 w-104 rounded-full opacity-50 blur-2xl md:blur-3xl"
           style={{
             background:
               'radial-gradient(circle, rgba(59,130,246,0.14) 0%, rgba(59,130,246,0.04) 42%, transparent 72%)',
@@ -46,7 +46,7 @@ const SchoolHistory = () => {
 
         {/* Neutral glow */}
         <div
-          className="absolute -bottom-40 -left-32 h-104 w-104 rounded-full opacity-60 blur-3xl"
+          className="absolute -bottom-40 -left-32 h-104 w-104 rounded-full opacity-60 blur-2xl md:blur-3xl"
           style={{
             background:
               'radial-gradient(circle, rgba(148,163,184,0.16) 0%, rgba(148,163,184,0.04) 45%, transparent 72%)',
@@ -55,7 +55,7 @@ const SchoolHistory = () => {
 
         {/* Center light */}
         <div
-          className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+          className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl md:blur-3xl"
           style={{
             background:
               'radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 45%, transparent 75%)',

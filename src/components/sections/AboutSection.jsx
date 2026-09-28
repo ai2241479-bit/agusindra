@@ -35,7 +35,7 @@ const AboutSection = () => {
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {/* Blue ambient light */}
         <div
-          className="absolute -left-40 top-20 h-105 w-105 rounded-full blur-3xl"
+          className="absolute -left-40 top-20 h-105 w-105 rounded-full blur-2xl md:blur-3xl"
           style={{
             background:
               'radial-gradient(circle, rgba(59,130,246,0.10) 0%, rgba(59,130,246,0.035) 45%, transparent 72%)',
@@ -44,7 +44,7 @@ const AboutSection = () => {
 
         {/* Neutral ambient light */}
         <div
-          className="absolute -right-40 bottom-0 h-105 w-105 rounded-full blur-3xl"
+          className="absolute -right-40 bottom-0 h-105 w-105 rounded-full blur-2xl md:blur-3xl"
           style={{
             background:
               'radial-gradient(circle, rgba(148,163,184,0.14) 0%, rgba(148,163,184,0.035) 45%, transparent 72%)',
@@ -53,7 +53,7 @@ const AboutSection = () => {
 
         {/* Center glow */}
         <div
-          className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+          className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl md:blur-3xl"
           style={{
             background:
               'radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.25) 45%, transparent 75%)',
@@ -177,7 +177,7 @@ const AboutSection = () => {
           >
             {/* Image glow */}
             <div
-              className="absolute left-1/2 top-1/2 h-4/5 w-3/4 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl"
+              className="absolute left-1/2 top-1/2 h-4/5 w-3/4 -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl md:blur-3xl"
               style={{
                 background:
                   'radial-gradient(ellipse, rgba(255,255,255,0.95) 0%, rgba(226,232,240,0.45) 48%, transparent 75%)',
@@ -192,6 +192,7 @@ const AboutSection = () => {
                 <img
                   src={`${import.meta.env.BASE_URL}about-profile.png`}
                   alt="Agus Indra"
+                  loading="lazy"
                   className="relative z-10 h-auto w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                 />
 
@@ -201,7 +202,7 @@ const AboutSection = () => {
                 {/* Image label */}
                 <div className="absolute bottom-5 left-5 z-30">
                   <span className="rounded-full border border-white/20 bg-black/60 px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-white shadow-lg backdrop-blur-md">
-                    Agus Indra / 02
+                    01 / 01
                   </span>
                 </div>
               </div>
