@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const HeroSection = () => {
   return (
-    <section className="relative isolate flex min-h-dvh flex-col items-center overflow-hidden bg-[#f7f7f5] px-5 pb-10 pt-[110px] text-slate-900 md:flex-row md:items-end md:px-10 md:pb-0 md:pt-24">
+    <section className="relative isolate flex min-h-dvh flex-col items-center overflow-hidden bg-[#f7f7f5] px-5 pb-10 pt-[140px] text-slate-900 md:flex-row md:items-end md:px-10 md:pb-0 md:pt-24">
 
       {/* =========================================================
           ATMOSPHERIC BACKGROUND

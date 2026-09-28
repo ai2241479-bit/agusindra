@@ -97,7 +97,7 @@ const ContactMenu = () => {
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         whileTap={{ scale: 0.96 }}
-        className={`group flex items-center gap-1.5 rounded-full border px-3 py-2 text-[10px] font-semibold tracking-[0.12em] transition-all duration-300 sm:gap-2 sm:px-4 sm:text-[9px] md:px-5 md:py-2.5 md:text-[10px] ${
+        className={`group flex min-h-[44px] items-center gap-1.5 rounded-full border px-4 py-2 text-[10px] font-bold tracking-[0.12em] transition-all duration-300 sm:gap-2 sm:px-4 sm:text-[10px] md:min-h-[auto] md:px-5 md:py-2.5 md:text-[10px] ${
           open
             ? 'border-slate-300 bg-white/80 text-slate-900 shadow-sm'
             : 'border-white/60 bg-white/40 text-slate-700 hover:bg-white/70 hover:text-slate-900'
@@ -246,6 +246,83 @@ const ContactMenu = () => {
 };
 
 /* =========================================================
+   MOBILE MENU
+========================================================= */
+
+const MobileMenu = ({ menuItems, activeSection }) => {
+  const [open, setOpen] = useState(false);
+  const whatsappNumber = '082138740594';
+
+  return (
+    <div className="relative z-50 flex shrink-0 items-center md:hidden">
+      {/* Hamburger Button */}
+      <motion.button
+        type="button"
+        onClick={() => setOpen((prev) => !prev)}
+        whileTap={{ scale: 0.9 }}
+        className="flex h-[44px] w-[44px] items-center justify-center rounded-full border border-white/60 bg-white/40 text-slate-700 shadow-sm backdrop-blur-md transition-colors hover:bg-white/70"
+      >
+        <span className="text-xl leading-none">{open ? '×' : '☰'}</span>
+      </motion.button>
+
+      {/* Dropdown Panel */}
+      <AnimatePresence>
+        {open && (
+          <>
+            <div
+              className="fixed inset-0 -z-10 h-[100dvh] w-[100vw]"
+              onClick={() => setOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: -10, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -10, scale: 0.98 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
+              className="absolute right-0 top-[calc(100%+12px)] z-50 w-[calc(100vw-32px)] max-w-[260px] origin-top-right overflow-hidden rounded-3xl border border-white/70 bg-white/75 p-3 shadow-[0_20px_50px_rgba(15,23,42,0.12)] backdrop-blur-xl"
+            >
+              <div className="flex flex-col gap-1">
+                {menuItems.map((item) => {
+                  const isActive = activeSection === item.id;
+                  return (
+                    <a
+                      key={item.id}
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className={`flex items-center rounded-2xl px-4 py-3.5 text-[10px] font-semibold uppercase tracking-[0.2em] transition-all ${
+                        isActive
+                          ? 'bg-slate-900/5 text-slate-900'
+                          : 'text-slate-500 hover:bg-slate-900/5 hover:text-slate-900'
+                      }`}
+                    >
+                      {item.title}
+                    </a>
+                  );
+                })}
+
+                <div className="my-2 h-px w-full bg-slate-200/60" />
+
+                <a
+                  href={`https://wa.me/${whatsappNumber}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="group flex items-center justify-between rounded-2xl border border-slate-300 bg-white/80 px-4 py-3.5 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-900 shadow-sm transition-all hover:bg-white"
+                >
+                  <span>Let's Talk</span>
+                  <span className="text-sm leading-none text-slate-500 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-slate-900">
+                    ↗
+                  </span>
+                </a>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+/* =========================================================
    APP
 ========================================================= */
 
@@ -366,7 +443,7 @@ export default function App() {
           PREMIUM LIQUID GLASS NAVBAR
       ===================================================== */}
 
-      <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-3 pt-3 sm:px-4 sm:pt-4 md:px-8 md:pt-6">
+      <header className="fixed inset-x-0 top-0 z-[100] flex justify-center px-3 pt-[max(12px,env(safe-area-inset-top))] sm:px-4 sm:pt-4 md:px-8 md:pt-6">
 
         <motion.nav
           initial={{
@@ -381,10 +458,10 @@ export default function App() {
             duration: 0.7,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className={`relative flex w-full max-w-6xl items-center justify-between border border-white/60 bg-white/45 backdrop-blur-md transition-all duration-500 md:backdrop-blur-2xl ${
+          className={`relative flex w-full max-w-6xl items-center justify-between border border-white/70 bg-white/75 backdrop-blur-xl transition-all duration-500 md:border-white/60 md:bg-white/45 md:backdrop-blur-2xl ${
             scrolled
-              ? 'rounded-3xl px-4 py-2.5 shadow-[0_8px_30px_rgba(15,23,42,0.06)] md:px-6 md:py-2 md:shadow-[0_12px_40px_rgba(15,23,42,0.08)]'
-              : 'rounded-[2rem] px-4 py-3 shadow-[0_4px_25px_rgba(15,23,42,0.04)] md:rounded-4xl md:px-7 md:py-3.5 md:shadow-[0_8px_35px_rgba(15,23,42,0.05)]'
+              ? 'rounded-full px-4 py-2.5 shadow-[0_8px_30px_rgba(15,23,42,0.08)] md:rounded-3xl md:px-6 md:py-2 md:shadow-[0_12px_40px_rgba(15,23,42,0.08)]'
+              : 'rounded-full px-4 py-3 shadow-[0_4px_25px_rgba(15,23,42,0.06)] md:rounded-4xl md:px-7 md:py-3.5 md:shadow-[0_8px_35px_rgba(15,23,42,0.05)]'
           }`}
         >
 
@@ -408,7 +485,7 @@ export default function App() {
             className="relative z-10 flex shrink-0 items-center gap-3"
           >
 
-            <div className="flex items-baseline text-lg font-black tracking-[-0.08em] text-slate-900 md:text-2xl">
+            <div className="flex items-baseline text-xl font-black tracking-[-0.08em] text-slate-900 md:text-2xl">
               A<span className="font-light">G</span>
               <span className="ml-0.5 text-blue-600">.</span>
             </div>
@@ -449,10 +526,18 @@ export default function App() {
           </div>
 
           {/* =================================================
-              CONTACT MENU
+              CONTACT MENU (DESKTOP)
           ================================================= */}
 
-          <ContactMenu />
+          <div className="hidden md:block">
+            <ContactMenu />
+          </div>
+
+          {/* =================================================
+              MOBILE MENU
+          ================================================= */}
+
+          <MobileMenu menuItems={menuItems} activeSection={activeSection} />
 
         </motion.nav>
 
